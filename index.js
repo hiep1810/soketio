@@ -22,10 +22,11 @@ io.sockets.on('error', (e) => {
 });
 
 let service = require('./socketio_service/service')(io);
-
+let groupService = require('./socketio_service/group_service')(io);
 io.on('connection', (socket) => {
   console.log(socket.id + ' has connected to server');
   service.listen(socket);
+  groupService.listen(socket);
 });
 
 server.listen(port, () => {

@@ -33,20 +33,29 @@ socket.on('connect', () => {
 
 socket.on('online-list', (data) => {
   let onlineListDiv = document.getElementById('online-list');
+  let listUserDiv = document.getElementById('online-list-user');
+
   onlineListDiv.innerHTML = '';
+  listUserDiv.innerHTML = '';
+
   let onlineList = data.list;
 
   for (let i = 0; i < onlineList.length; i++) {
     let onlineUserNode = document.createElement('li');
+    let groupUserNode = document.createElement('li');
+
     onlineUserNode.value = i;
 
     if (onlineList[i] === socket.id) {
       onlineUserNode.innerText = onlineList[i] + ` --- It's you`;
+      groupUserNode.innerHTML = `<div><span>${onlineList[i]}<input type="checkbox" id="${onlineList[i]}"/> --- It's you<span></div>`;
     } else {
       onlineUserNode.innerText = onlineList[i];
+      groupUserNode.innerHTML = `<div><span>${onlineList[i]}<span><input type="checkbox" id="${onlineList[i]}"/></div>`;
     }
 
     onlineListDiv.appendChild(onlineUserNode);
+    listUserDiv.appendChild(groupUserNode);
   }
 });
 
