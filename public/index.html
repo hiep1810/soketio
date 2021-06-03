@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Socket.io simple chat</title>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <div>
+      <h5 id="user-id">Your id:</h5>
+    </div>
+    <div class="container">
+      <div class="inbox">
+        <h4>Active users</h4>
+        <ul id="online-list"></ul>
+      </div>
+      <div>
+        <input type="text" id="username" placeholder="text your username" />
+        <input type="button" id="btn-username" value="submit" />
+        <input type="file" id="btn-send-file" value="send file" />
+      </div>
+      <br />
+      <br />
+
+      <div class="chat-screen"></div>
+      <div class="message_form">
+        <input id="message" placeholder="Type a message" />
+        <button id="btn-send-message" type="button">Enter</button>
+      </div>
+      <br />
+      <div class="inbox__messages">
+        <div>Messages:</div>
+        <div id="messages"></div>
+      </div>
+    </div>
+
+    <script
+      src="https://cdn.socket.io/4.1.1/socket.io.min.js"
+      integrity="sha384-cdrFIqe3RasCMNE0jeFG9xJHog/tgOVC1E9Lzve8LQN1g5WUHo0Kvk1mawWjxX7a"
+      crossorigin="anonymous"
+    ></script>
+    <script src="index.js"></script>
+  </body>
+</html>
